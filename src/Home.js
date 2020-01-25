@@ -19,7 +19,7 @@ class Home extends Component {
             <button onClick={this.logout}>Выйти</button>
             </header>
 
-        <div className="table-row">Таблица 2</div>
+        <div className="table-row">Таблица123</div>
         
         </div>
     ); 
