@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import fireb from "./configforfirebase/Fire";
-import Home from "./Home";
-import Login from "./Login";
+import Home from "./Components/Home";
+import Auth from "./Components/Auth";
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   render() {
-    return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
+    return <div className="App">{this.state.user ? <Home /> : <Auth />}</div>;
   }
 }
 export default App;
