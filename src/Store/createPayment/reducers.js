@@ -5,10 +5,9 @@ const defaultState = {
     paymentStatus: "",
     paymentReceiver: "",
     paymentComment: ""
-    }
 };
 
-const CreatePaymentReduser = (state, action) => {
+const CreatePaymentReducer = (state, action) => {
 switch (action.type) {
     case ...
 

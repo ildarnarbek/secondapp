@@ -30,14 +30,14 @@ const defaultState = {
   ]
 };
 
-export const homeFindReduser = (state = defaultState, action) => {
+export const homeFindReducer = (state = defaultState, action) => {
   switch (action.type) {
     case HOME_CHANGE_FIND_FIELD:
       return {
         ...state,
         keywordToFind: action.payload
       };
-    // default:
+    default:
+      return state;
   }
-  return state;
 };
