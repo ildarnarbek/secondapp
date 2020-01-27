@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import fireb from "./configforfirebase/Fire";
 
-class Login extends Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.login = this.login.bind(this);

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import fireb from "./configforfirebase/Fire";
 
 class Home extends React.Component {

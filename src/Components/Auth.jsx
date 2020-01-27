@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export default class Auth extends React.Component {
   render() {
@@ -8,7 +8,7 @@ export default class Auth extends React.Component {
           <div>
             <label htmlFor="exampleInputEmail1">Email:</label>
             <input
-              value={this.state.email}
+              //   value={this.state.email}
               onChange={this.handleChange}
               type="email"
               name="email"
@@ -20,7 +20,7 @@ export default class Auth extends React.Component {
           <div>
             <label htmlFor="exampleInputPassword1">Пароль:</label>
             <input
-              value={this.state.password}
+              //   value={this.state.password}
               onChange={this.handleChange}
               type="password"
               name="password"
