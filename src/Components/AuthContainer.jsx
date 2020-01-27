@@ -20,9 +20,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     email: state.auth.email,
-    password: state.auth.password,
-    test: 1,
-    haha: 2
+    password: state.auth.password
   };
 };
 
