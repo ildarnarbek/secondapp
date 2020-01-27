@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-// import fireb from "./configforfirebase/Fire";
-// import Home from "./Components/Home";
 import AuthContainer from "./Components/AuthContainer";
 import { createStore } from "redux";
 import rootReduser from "./Store/reducers";
