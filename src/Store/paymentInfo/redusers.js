@@ -4,9 +4,10 @@ const defaultState = {
         paymentDate: "",
         paymentStatus: "",
         paymentReceiver: ""
+        }
 };
 
-const paymentInfoReducer = (state, action) => {
+const paymentInfoReduser = (state, action) => {
     switch (action.type) {
         case ...
     
