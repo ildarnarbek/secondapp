@@ -1,16 +1,29 @@
 import React from "react";
+import fireb from "../configforfirebase/Fire";
 
 export default class Auth extends React.Component {
   constructor(props) {
     super(props);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+    this.login = this.login.bind(this);
   }
   onEmailChange(event) {
     this.props.setEmailText(event.target.value);
   }
   onPasswordChange(event) {
     this.props.setPasswordText(event.target.value);
+  }
+
+  login(event) {
+    event.preventDefault();
+    fireb
+      .auth()
+      .signInWithEmailAndPassword(this.props.email, this.props.password)
+      .then(u => {})
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
