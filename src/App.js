@@ -26,12 +26,13 @@ class App extends Component {
   authListener() {
     fireb.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(this.state);
+        console.log("Данные из юзера");
+        console.log(user);
         this.setState({ user });
-        localStorage.setItem("user", user.uid);
+        // localStorage.setItem("user", user.uid);
       } else {
         this.setState({ user: null });
-        localStorage.removeItem("user");
+        // localStorage.removeItem("user");
       }
     });
   }
