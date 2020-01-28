@@ -20,9 +20,15 @@ export default class Auth extends React.Component {
     fireb
       .auth()
       .signInWithEmailAndPassword(this.props.email, this.props.password)
-      .then(u => {})
-      .catch(error => {
-        console.log(error);
+      .then(u => {
+        console.log(u);
+
+        this.props.setLoginSuccess();
+        // console.log(this.state);
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.setLoginError(err);
       });
   }
 
@@ -56,6 +62,7 @@ export default class Auth extends React.Component {
           <button type="submit" onClick={this.login}>
             Войти
           </button>
+          {/* <div>{this.props.authError ? <p>не верный пароль</p> : null}</div> */}
         </form>
       </div>
     );
