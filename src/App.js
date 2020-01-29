@@ -2,13 +2,32 @@ import React, { Component } from "react";
 import "./App.css";
 import AuthContainer from "./Components/AuthContainer";
 import Home from "./Components/Home";
-import { createStore } from "redux";
 import rootReduser from "./Store/reducers";
 import { Provider } from "react-redux";
-import fireb from "./configforfirebase/Fire";
+import firebase from "./configforfirebase/Fire";
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware, compose } from "redux";
+// import { getFirestore } from "redux-firestore";
+// import { getFirebase } from "react-redux-firebase";
+// import config from "./configforfirebase/Fire";
+import { createFirestoreInstance } from "redux-firestore";
+import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 
-const store = createStore(rootReduser);
+// const middlewares = [
+//   thunk.withExtraArgument(getFirebase)
+// ]
 
+const store = createStore(
+  rootReduser,
+  compose(applyMiddleware(thunk.withExtraArgument(getFirebase)))
+);
+const rrfConfig = { userProfile: "users" };
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance // <- needed if using firestore
+};
 // console.log(store.getState());
 
 class App extends Component {
@@ -24,9 +43,9 @@ class App extends Component {
   }
 
   authListener() {
-    fireb.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log("Данные из юзера");
+        console.log("Апп ауслисинер Данные из юзера");
         console.log(user);
         this.setState({ user });
         // localStorage.setItem("user", user.uid);
@@ -40,7 +59,9 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {this.state.user ? <Home /> : <AuthContainer />}
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          {this.state.user ? <Home /> : <AuthContainer />}
+        </ReactReduxFirebaseProvider>
       </Provider>
     );
   }

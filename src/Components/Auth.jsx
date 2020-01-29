@@ -1,5 +1,5 @@
 import React from "react";
-import fireb from "../configforfirebase/Fire";
+import firebase from "../configforfirebase/Fire";
 
 export default class Auth extends React.Component {
   constructor(props) {
@@ -17,11 +17,12 @@ export default class Auth extends React.Component {
 
   login(event) {
     event.preventDefault();
-    fireb
+    firebase
       .auth()
       .signInWithEmailAndPassword(this.props.email, this.props.password)
-      .then(u => {
-        console.log(u);
+      .then(user => {
+        console.log("Аус логин данные из юзера");
+        console.log(user);
 
         this.props.setLoginSuccess();
         // console.log(this.state);

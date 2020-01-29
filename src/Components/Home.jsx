@@ -1,5 +1,6 @@
 import React from "react";
-import fireb from "../configforfirebase/Fire";
+import firebase from "../configforfirebase/Fire";
+import CreatePayment from "./CreatePayment";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ export default class Home extends React.Component {
   }
   // функция чтобы выйти
   logout() {
-    fireb.auth().signOut();
+    firebase.auth().signOut();
+    console.log("выход");
   }
 
   render() {
@@ -19,9 +21,11 @@ export default class Home extends React.Component {
           <div>Текущий баланс</div>
           {/* когда кликаем на кнопку то выходим  */}
           <button onClick={this.logout}>Выйти</button>
+          <button>Создать платеж</button>
         </header>
 
         <div className="table-row">Таблица</div>
+        <CreatePayment />
       </div>
     );
   }
