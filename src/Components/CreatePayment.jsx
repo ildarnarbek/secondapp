@@ -4,8 +4,10 @@ import { createPayment } from "../Store/paymentAction";
 
 class CreatePayment extends Component {
   state = {
-    title: "",
-    content: ""
+    paymentDescription: "",
+    paymentComment: "",
+    paymentSum: "",
+    paymentReceiver: ""
   };
   handleChange = e => {
     this.setState({
@@ -15,8 +17,8 @@ class CreatePayment extends Component {
   handleSubmit = e => {
     e.preventDefault();
     // console.log(this.state);
+
     this.props.createPayment(this.state);
-    this.props.history.push("/");
   };
   render() {
     return (

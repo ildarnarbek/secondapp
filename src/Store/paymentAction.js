@@ -1,9 +1,9 @@
 //позже положить в папку createpayments/actions
-
+import firebase from "../configforfirebase/Fire";
 export const createPayment = payment => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
-    const firestore = getFirestore();
-    firestore
+  return dispatch => {
+    firebase
+      .firestore()
       .collection("payments")
       .add({
         ...payment,
