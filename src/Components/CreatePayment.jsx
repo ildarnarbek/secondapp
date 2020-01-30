@@ -19,6 +19,7 @@ class CreatePayment extends Component {
     // console.log(this.state);
 
     this.props.createPayment(this.state);
+    this.props.history.push("/");
   };
   render() {
     return (

@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "../configforfirebase/Fire";
 import CreatePayment from "./CreatePayment";
+import PaymentsList from "./PaymentsList";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -26,6 +27,9 @@ export default class Home extends React.Component {
 
         <div className="table-row">Таблица</div>
         <CreatePayment />
+        <div>
+          <PaymentsList />
+        </div>
       </div>
     );
   }
