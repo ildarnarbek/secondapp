@@ -51,7 +51,7 @@ class CreatePayment extends Component {
             />
           </div>
           <div>
-            <label htmlFor="paymSument">Сумма платежа:</label>
+            <label htmlFor="paymentSum">Сумма платежа:</label>
             <input
               type="text"
               name="paymentSum"
