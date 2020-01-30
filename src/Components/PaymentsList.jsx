@@ -18,8 +18,10 @@ class PaymentsList extends Component {
           return (
             <div key={payment.id}>
               {/* поправить */}
-              <h3>{payment.data.title}</h3>
-              <p>{payment.data.content}</p>
+              <h3>{payment.data.paymentDescription}</h3>
+              <h3>{payment.data.paymentComment}</h3>
+              <h3>{payment.data.paymentSum}</h3>
+              <h3>{payment.data.paymentReceiver}</h3>
             </div>
           );
         })}
@@ -31,7 +33,7 @@ class PaymentsList extends Component {
 function mapStateToProps(state) {
   //state.ReducerName.reducerProperty
   return {
-    firestorePayments: state.firestoreReducer.payments
+    firestorePayments: state.fetchFirestorePayments.payments
   };
 }
 

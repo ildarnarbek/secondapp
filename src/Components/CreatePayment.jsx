@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createPayment } from "../Store/paymentAction";
+import { bindActionCreators } from "redux";
 
 class CreatePayment extends Component {
   state = {
@@ -17,8 +18,13 @@ class CreatePayment extends Component {
   handleSubmit = e => {
     e.preventDefault();
     // console.log(this.state);
-
-    this.props.createPayment(this.state);
+    const payment = {
+      paymentDescription: this.state.paymentDescription,
+      paymentComment: this.state.paymentComment,
+      paymentSum: this.state.paymentSum,
+      paymentReceiver: this.state.paymentReceiver
+    };
+    this.props.addPayment(payment);
     this.props.history.push("/");
   };
   render() {
@@ -45,7 +51,7 @@ class CreatePayment extends Component {
             />
           </div>
           <div>
-            <label htmlFor="paymentSum">Сумма платежа:</label>
+            <label htmlFor="paymSument">Сумма платежа:</label>
             <input
               type="text"
               name="paymentSum"
@@ -70,10 +76,15 @@ class CreatePayment extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+function mapStateToProps(state) {
+  //state.ReducerName.reducerProperty
   return {
-    createPayment: payment => dispatch(createPayment(payment))
+    firestorePayments: state.createPayment.payment
   };
-};
+}
+function matchDispatchToProps(dispatch) {
+  //bind the action to be executed
+  return bindActionCreators({ addPayment: createPayment }, dispatch);
+}
 
-export default connect(null, mapDispatchToProps)(CreatePayment);
+export default connect(mapStateToProps, matchDispatchToProps)(CreatePayment);
