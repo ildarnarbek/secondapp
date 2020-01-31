@@ -25,11 +25,10 @@ export default class Home extends React.Component {
           <button>Создать платеж</button>
         </header>
 
-        <div className="table-row">Таблица</div>
+        <div>Таблица</div>
+
+        <PaymentsList />
         <CreatePayment />
-        <div>
-          <PaymentsList />
-        </div>
       </div>
     );
   }

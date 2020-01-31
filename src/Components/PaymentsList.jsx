@@ -13,15 +13,15 @@ class PaymentsList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="table">
         {this.props.firestorePayments.map(payment => {
           return (
-            <div key={payment.id}>
+            <div key={payment.id} className="table-row">
               {/* поправить */}
-              <h3>{payment.data.paymentDescription}</h3>
-              <h3>{payment.data.paymentComment}</h3>
-              <h3>{payment.data.paymentSum}</h3>
-              <h3>{payment.data.paymentReceiver}</h3>
+              <span>{payment.data.paymentDescription}</span>
+              <span>{payment.data.paymentComment}</span>
+              <span>{payment.data.paymentSum}</span>
+              <span>{payment.data.paymentReceiver}</span>
             </div>
           );
         })}

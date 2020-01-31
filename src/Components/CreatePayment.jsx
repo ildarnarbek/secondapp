@@ -25,7 +25,7 @@ class CreatePayment extends Component {
       paymentReceiver: this.state.paymentReceiver
     };
     this.props.addPayment(payment);
-    this.props.history.push("/");
+    // this.props.history.push("/");
   };
   render() {
     return (

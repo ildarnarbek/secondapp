@@ -18,6 +18,7 @@ export function fetchFirestorePayments() {
           payments.push(payment);
         });
         console.log(payments);
+
         //dispatch the action with the posts as the payload
         dispatch({ type: "FETCH_FIRESTORE_PAYMENTS", payload: payments });
       });

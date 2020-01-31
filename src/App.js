@@ -7,11 +7,10 @@ import { Provider } from "react-redux";
 import firebase from "./configforfirebase/Fire";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware, compose } from "redux";
-import { getFirestore } from "redux-firestore";
 // import { getFirebase } from "react-redux-firebase";
 // import config from "./configforfirebase/Fire";
 import { createFirestoreInstance } from "redux-firestore";
-import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
 // const middlewares = [
 //   thunk.withExtraArgument(getFirebase)
@@ -20,7 +19,7 @@ import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 const store = createStore(
   rootReduser,
   compose(
-    applyMiddleware(thunk.withExtraArgument(getFirebase, getFirestore))
+    applyMiddleware(thunk)
     // applyMiddleware(thunk.withExtraArgument(getFirestore))
   )
 );
