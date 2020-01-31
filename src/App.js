@@ -15,14 +15,18 @@ import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 // const middlewares = [
 //   thunk.withExtraArgument(getFirebase)
 // ]
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReduser,
-  compose(
-    applyMiddleware(thunk)
-    // applyMiddleware(thunk.withExtraArgument(getFirestore))
-  )
+  composeEnhancers(applyMiddleware(thunk))
 );
+
+// const store = createStore(
+//   rootReduser,
+//   compose(
+//     applyMiddleware(thunk)
+//   )
+// );
 const rrfConfig = { userProfile: "users", useFirestoreForProfile: true };
 const rrfProps = {
   firebase,

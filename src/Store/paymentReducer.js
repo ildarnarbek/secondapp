@@ -20,7 +20,7 @@
 const addTofirestoreReducer = (
   //initial state
   state = {
-    paymentt: {}
+    payment: {}
   },
   action
 ) => {

@@ -28,7 +28,14 @@ export function createPayment(paymentObject) {
       .collection("payments")
       .add(paymentObject)
       .then(payment => {
-        dispatch({ type: "CREATE_PAYMENT_SUCCESS", payload: payment });
+        dispatch({
+          type: "CREATE_PAYMENT_SUCCESS",
+          payload: {
+            payment,
+            paymentDate: new Date(),
+            paymentStatus: "В процессе"
+          }
+        });
         console.log("post has been added");
       })
       .catch(err => {
