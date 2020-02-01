@@ -1,4 +1,5 @@
 import firebase from "../configforfirebase/Fire";
+export const FETCH_FIRESTORE_PAYMENTS = "FETCH_FIRESTORE_PAYMENTS";
 
 export function fetchFirestorePayments() {
   return function(dispatch) {

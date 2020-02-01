@@ -1,5 +1,8 @@
 //позже положить в папку createpayments/actions
 import firebase from "../configforfirebase/Fire";
+export const CREATE_PAYMENT_SUCCESS = "CREATE_PAYMENT_SUCCESS";
+export const CREATE_PAYMENT_ERROR = "CREATE_PAYMENT_ERROR";
+
 export const createPayment = payment => {
   return dispatch => {
     firebase
@@ -11,10 +14,10 @@ export const createPayment = payment => {
         paymentStatus: "В процессе"
       })
       .then(() => {
-        dispatch({ type: "CREATE_PAYMENT_SUCCESS", payment });
+        dispatch({ type: CREATE_PAYMENT_SUCCESS, payload: payment });
       })
       .catch(err => {
-        dispatch({ type: "CREATE_PAYMENT_ERROR" }, err);
+        dispatch({ type: CREATE_PAYMENT_ERROR }, err);
       });
   };
 };
