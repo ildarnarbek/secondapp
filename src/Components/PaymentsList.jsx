@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+// import { connect } from "react-redux";
+// import { bindActionCreators } from "redux";
+// import { fetchFirestorePayments } from "../Store/PaymentsListActions";
 
-//action
-import { fetchFirestorePayments } from "../Store/PaymentsListActions";
+export default class PaymentsList extends Component {
+  // constructor(props) {
+  //   super(props);
 
-class PaymentsList extends Component {
+  // }
   componentDidMount = () => {
     // call the action
-    this.props.FetchPayments();
+    this.props.fetchFirestorePayments();
   };
 
   render() {
@@ -30,20 +32,20 @@ class PaymentsList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  //state.ReducerName.reducerProperty
-  return {
-    firestorePayments: state.fetchFirestorePayments.payments
-  };
-}
+// function mapStateToProps(state) {
+//   //state.ReducerName.reducerProperty
+//   return {
+//     firestorePayments: state.fetchFirestorePayments.payments
+//   };
+// }
 
-// access using "props.namegiven"
-function matchDispatchToProps(dispatch) {
-  //bind the action to be executed
-  return bindActionCreators(
-    { FetchPayments: fetchFirestorePayments },
-    dispatch
-  );
-}
+// // access using "props.namegiven"
+// function matchDispatchToProps(dispatch) {
+//   //bind the action to be executed
+//   return bindActionCreators(
+//     { FetchPayments: fetchFirestorePayments },
+//     dispatch
+//   );
+// }
 
-export default connect(mapStateToProps, matchDispatchToProps)(PaymentsList); //the name of the component
+// export default connect(mapStateToProps, matchDispatchToProps)(PaymentsList); //the name of the component

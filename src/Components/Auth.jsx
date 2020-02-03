@@ -4,19 +4,23 @@ import firebase from "../configforfirebase/Fire";
 export default class Auth extends React.Component {
   constructor(props) {
     super(props);
+    // console.log("props в Auth");
+    // console.log(props);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
     this.login = this.login.bind(this);
   }
-  onEmailChange(event) {
-    this.props.setEmailText(event.target.value);
+  onEmailChange(e) {
+    this.props.setEmailText(e.target.value);
+    // console.log("props в Auth");
+    // console.log(this.props);
   }
-  onPasswordChange(event) {
-    this.props.setPasswordText(event.target.value);
+  onPasswordChange(e) {
+    this.props.setPasswordText(e.target.value);
   }
 
-  login(event) {
-    event.preventDefault();
+  login(e) {
+    e.preventDefault();
     firebase
       .auth()
       .signInWithEmailAndPassword(this.props.email, this.props.password)
@@ -65,6 +69,7 @@ export default class Auth extends React.Component {
           </button>
           {/* <div>{this.props.authError ? <p>не верный пароль</p> : null}</div> */}
         </form>
+        <div>{this.props.email}</div>
       </div>
     );
   }

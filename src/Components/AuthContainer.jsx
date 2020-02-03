@@ -10,7 +10,8 @@ import {
 
 class AuthContainer extends React.Component {
   render() {
-    // console.log(this.props);
+    console.log("Props AUTHCONTAINER");
+    console.log(this.props);
     return (
       <Auth
         email={this.props.email}
@@ -24,6 +25,7 @@ class AuthContainer extends React.Component {
   }
 }
 const mapStateToProps = state => {
+  console.log("mapStateToProps");
   console.log(state);
   return {
     email: state.auth.email,
@@ -38,5 +40,4 @@ const mapDispatchToProps = {
   setLoginError: setLoginError,
   setLoginSuccess: setLoginSuccess
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);
