@@ -5,6 +5,7 @@ import PaymentsList from "./PaymentsList";
 import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 import { fetchFirestorePayments } from "../Store/PaymentsListActions";
+import { createPayment } from "../Store/paymentAction";
 
 class Home extends React.Component {
   constructor(props) {
@@ -35,7 +36,10 @@ class Home extends React.Component {
           firestorePayments={this.props.firestorePayments}
           fetchFirestorePayments={this.props.fetchFirestorePayments}
         />
-        <CreatePayment />
+        <CreatePayment
+          firestorePayments2={this.props.firestorePayments}
+          createPayment={this.props.createPayment}
+        />
       </div>
     );
   }
@@ -43,13 +47,15 @@ class Home extends React.Component {
 function mapStateToProps(state) {
   //state.ReducerName.reducerProperty
   return {
-    firestorePayments: state.fetchFirestorePayments.payments
+    firestorePayments: state.fetchFirestorePayments.payments,
+    firestorePayments2: state.createPayment.payment
   };
 }
 
 // access using "props.namegiven"
 const matchDispatchToProps = {
-  fetchFirestorePayments: fetchFirestorePayments
+  fetchFirestorePayments: fetchFirestorePayments,
+  createPayment: createPayment
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Home); //the name of the component

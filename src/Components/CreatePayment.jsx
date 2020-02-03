@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { createPayment } from "../Store/paymentAction";
-import { bindActionCreators } from "redux";
+// import { connect } from "react-redux";
+// import { createPayment } from "../Store/paymentAction";
+// import { bindActionCreators } from "redux";
 
-class CreatePayment extends Component {
-  state = {
-    paymentDescription: "",
-    paymentComment: "",
-    paymentSum: "",
-    paymentReceiver: ""
-  };
+export default class CreatePayment extends Component {
+  // state = {
+  //   paymentDescription: "",
+  //   paymentComment: "",
+  //   paymentSum: "",
+  //   paymentReceiver: ""
+  // };
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
@@ -24,7 +24,7 @@ class CreatePayment extends Component {
       paymentSum: this.state.paymentSum,
       paymentReceiver: this.state.paymentReceiver
     };
-    this.props.addPayment(payment);
+    this.props.createPayment(payment);
     // this.props.history.push("/");
   };
   render() {
@@ -76,15 +76,14 @@ class CreatePayment extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  //state.ReducerName.reducerProperty
-  return {
-    firestorePayments: state.createPayment.payment
-  };
-}
-function matchDispatchToProps(dispatch) {
-  //bind the action to be executed
-  return bindActionCreators({ addPayment: createPayment }, dispatch);
-}
+// function mapStateToProps(state) {
+//   //state.ReducerName.reducerProperty
+//   return {
+//     firestorePayments2: state.createPayment.payment
+//   };
+// }
+// const matchDispatchToProps = {
+//   createPayment: createPayment
+// };
 
-export default connect(mapStateToProps, matchDispatchToProps)(CreatePayment);
+// export default connect(mapStateToProps, matchDispatchToProps)(CreatePayment);
