@@ -10,7 +10,7 @@ export function fetchFirestorePayments() {
       .then(querySnapshot => {
         let payments = [];
         querySnapshot.forEach(doc => {
-          //console.log(doc.id, doc.data());
+          // console.log(doc.id, doc.data());
           let payment = {
             id: doc.id,
             data: doc.data()
@@ -18,6 +18,7 @@ export function fetchFirestorePayments() {
 
           payments.push(payment);
         });
+        console.log("Загруженные платежи");
         console.log(payments);
 
         //dispatch the action with the posts as the payload

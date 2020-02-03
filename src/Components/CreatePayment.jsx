@@ -17,7 +17,14 @@ export default class CreatePayment extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    // console.log("Стейт из креате пеймент");
     // console.log(this.state);
+    // const payment = {
+    //   paymentDescription: this.state.paymentDescription,
+    //   paymentComment: this.state.paymentComment,
+    //   paymentSum: this.state.paymentSum,
+    //   paymentReceiver: this.state.paymentReceiver
+    // };
     const payment = {
       paymentDescription: this.state.paymentDescription,
       paymentComment: this.state.paymentComment,
@@ -26,6 +33,7 @@ export default class CreatePayment extends Component {
     };
     this.props.createPayment(payment);
     // this.props.history.push("/");
+    this.props.fetchFirestorePayments();
   };
   render() {
     return (

@@ -37,8 +37,9 @@ class Home extends React.Component {
           fetchFirestorePayments={this.props.fetchFirestorePayments}
         />
         <CreatePayment
-          firestorePayments2={this.props.firestorePayments}
+          // firestorePayments2={this.props.firestorePayments}
           createPayment={this.props.createPayment}
+          fetchFirestorePayments={this.props.fetchFirestorePayments}
         />
       </div>
     );
@@ -47,12 +48,11 @@ class Home extends React.Component {
 function mapStateToProps(state) {
   //state.ReducerName.reducerProperty
   return {
-    firestorePayments: state.fetchFirestorePayments.payments,
-    firestorePayments2: state.createPayment.payment
+    firestorePayments: state.fetchFirestorePayments.payments
+    // firestorePayments2: state.fetchFirestorePayments.payments.payment
   };
 }
 
-// access using "props.namegiven"
 const matchDispatchToProps = {
   fetchFirestorePayments: fetchFirestorePayments,
   createPayment: createPayment
