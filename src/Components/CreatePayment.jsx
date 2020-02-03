@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-// import { connect } from "react-redux";
-// import { createPayment } from "../Store/paymentAction";
-// import { bindActionCreators } from "redux";
 
 export default class CreatePayment extends Component {
   // state = {
@@ -19,12 +16,6 @@ export default class CreatePayment extends Component {
     e.preventDefault();
     // console.log("Стейт из креате пеймент");
     // console.log(this.state);
-    // const payment = {
-    //   paymentDescription: this.state.paymentDescription,
-    //   paymentComment: this.state.paymentComment,
-    //   paymentSum: this.state.paymentSum,
-    //   paymentReceiver: this.state.paymentReceiver
-    // };
     const payment = {
       paymentDescription: this.state.paymentDescription,
       paymentComment: this.state.paymentComment,
@@ -32,7 +23,6 @@ export default class CreatePayment extends Component {
       paymentReceiver: this.state.paymentReceiver
     };
     this.props.createPayment(payment);
-    // this.props.history.push("/");
     this.props.fetchFirestorePayments();
   };
   render() {
@@ -83,15 +73,3 @@ export default class CreatePayment extends Component {
     );
   }
 }
-
-// function mapStateToProps(state) {
-//   //state.ReducerName.reducerProperty
-//   return {
-//     firestorePayments2: state.createPayment.payment
-//   };
-// }
-// const matchDispatchToProps = {
-//   createPayment: createPayment
-// };
-
-// export default connect(mapStateToProps, matchDispatchToProps)(CreatePayment);

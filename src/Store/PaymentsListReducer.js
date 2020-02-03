@@ -14,11 +14,5 @@ const firestoreReducer = (state = defaultState, action) => {
       return state;
   }
 };
-//   if (action.type === "FETCH_FIRESTORE_PAYMENTS") {
-//     state = { ...state, payments: action.payload };
-//   }
-
-//   return state;
-// };
 
 export default firestoreReducer;
