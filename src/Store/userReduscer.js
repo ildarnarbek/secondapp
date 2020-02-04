@@ -1,14 +1,17 @@
 import { FETCH_USER_PROFILE } from "./userActions";
 
 const defaultState = {
-  userprofile: []
+  userData:{
+    userBalance: "",
+    userName:""
+  }
 };
 const userProfileReducer = (state = defaultState, action) => {
   switch (action.type) {
     case FETCH_USER_PROFILE:
       return {
         ...state,
-        userprofile: action.payload
+        userData: action.payload
       };
     default:
       return state;

@@ -26,10 +26,13 @@ export default class CreatePayment extends Component {
     this.props.fetchFirestorePayments();
   };
   render() {
+    console.log("пропсы из юзерпроф");
+    console.log(this.props.userProfile);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <h2>Создание платежа</h2>
+          <div>Имя пользователя </div>
           <div>
             <label htmlFor="paymentDescription">Наименование:</label>
             <input

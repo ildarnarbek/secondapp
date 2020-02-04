@@ -28,8 +28,8 @@ class Home extends React.Component {
     return (
       <div>
         <header>
-          <div>Имя пользователя</div>
-          <div>Текущий баланс</div>
+          <div>{this.props.userProfile.userName} </div>
+          <div>Текущий баланс: {this.props.userProfile.userBalance} руб. </div>
           {/* когда кликаем на кнопку то выходим  */}
           <button onClick={this.logout}>Выйти</button>
           <button>Создать платеж</button>
@@ -43,6 +43,7 @@ class Home extends React.Component {
         />
         <CreatePayment
           // firestorePayments2={this.props.firestorePayments}
+          userProfile={this.props.userProfile}
           createPayment={this.props.createPayment}
           fetchFirestorePayments={this.props.fetchFirestorePayments}
         />
@@ -54,7 +55,7 @@ function mapStateToProps(state) {
   //state.ReducerName.reducerProperty
   return {
     firestorePayments: state.fetchFirestorePayments.payments,
-    userProfile: state.home
+    userProfile: state.userProfile.userData
     // firestorePayments2: state.fetchFirestorePayments.payments.payment
   };
 }
