@@ -53,7 +53,10 @@ class App extends Component {
       if (user) {
         console.log("Апп ауслисинер Данные из юзера");
         console.log(user);
+
         this.setState({ user });
+        console.log("состояние  стейта после ауслистнера");
+        console.log(this.state);
         // localStorage.setItem("user", user.uid);
       } else {
         this.setState({ user: null });

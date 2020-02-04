@@ -48,7 +48,8 @@ class Home extends React.Component {
 function mapStateToProps(state) {
   //state.ReducerName.reducerProperty
   return {
-    firestorePayments: state.fetchFirestorePayments.payments
+    firestorePayments: state.fetchFirestorePayments.payments,
+    userProfile: state.home
     // firestorePayments2: state.fetchFirestorePayments.payments.payment
   };
 }

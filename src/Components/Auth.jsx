@@ -1,51 +1,50 @@
 import React from "react";
-import firebase from "../configforfirebase/Fire";
+// import firebase from "../configforfirebase/Fire";
+// import { loginUser } from "../Store/auth/actions";
 
 export default class Auth extends React.Component {
   constructor(props) {
     super(props);
     // console.log("props в Auth");
     // console.log(props);
-    this.onEmailChange = this.onEmailChange.bind(this);
-    this.onPasswordChange = this.onPasswordChange.bind(this);
+    // this.onEmailChange = this.onEmailChange.bind(this);
+    // this.onPasswordChange = this.onPasswordChange.bind(this);
+    this.getInputValues = this.getInputValues.bind(this);
     this.login = this.login.bind(this);
   }
-  onEmailChange(e) {
-    this.props.setEmailText(e.target.value);
-    // console.log("props в Auth");
-    // console.log(this.props);
-  }
-  onPasswordChange(e) {
-    this.props.setPasswordText(e.target.value);
-  }
+  state = {
+    email: "",
+    password: ""
+  };
+  getInputValues = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  // onEmailChange(e) {
+  //   this.props.setEmailText(e.target.value);
+  //   // console.log("props в Auth");
+  //   // console.log(this.props);
+  // }
+  // onPasswordChange(e) {
+  //   this.props.setPasswordText(e.target.value);
+  // }
 
   login(e) {
     e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(this.props.email, this.props.password)
-      .then(user => {
-        console.log("Аус логин данные из юзера");
-        console.log(user);
-
-        this.props.setLoginSuccess();
-        // console.log(this.state);
-      })
-      .catch(err => {
-        console.log(err);
-        this.props.setLoginError(err);
-      });
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.loginUser(user);
   }
-
   render() {
     return (
       <div className="col-md-6">
-        <form>
+        <form onSubmit={this.login}>
           <div>
             <label htmlFor="exampleInputEmail1">Email:</label>
             <input
-              value={this.props.email}
-              onChange={this.onEmailChange}
+              onChange={this.getInputValues}
               type="email"
               name="email"
               id="exampleInputEmail1"
@@ -56,8 +55,7 @@ export default class Auth extends React.Component {
           <div>
             <label htmlFor="exampleInputPassword1">Пароль:</label>
             <input
-              value={this.props.password}
-              onChange={this.onPasswordChange}
+              onChange={this.getInputValues}
               type="password"
               name="password"
               id="exampleInputPassword1"

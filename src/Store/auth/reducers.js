@@ -1,29 +1,24 @@
-import {
-  AUTH_CHANGE_EMAIL_TEXT,
-  AUTH_CHANGE_PASSWORD_TEXT,
-  LOGIN_ERROR,
-  LOGIN_SUCCESS
-} from "./actions";
-
+import { LOGIN_ERROR, LOGIN_SUCCESS } from "./actions";
+// const defaultState = {
+//   email: "",
+//   password: "",
+//   authError: null
+// };
 const defaultState = {
-  email: "",
-  password: "",
-  authError: null
+  // user: {},
+  // credential: "",
+  // additionalUserInfo: {},
+  // operationType: ""
 };
 
 export const authReducer = (state = defaultState, action) => {
-  // console.log(state);
+  console.log(state);
   switch (action.type) {
-    case AUTH_CHANGE_EMAIL_TEXT:
-      return {
-        ...state,
-        email: action.payload
-      };
-    case AUTH_CHANGE_PASSWORD_TEXT:
-      return {
-        ...state,
-        password: action.payload
-      };
+    // case LOGIN_USER:
+    //   return {
+    //     ...state,
+    //     user: action.payload
+    //   };
     case LOGIN_ERROR:
       console.log("login error");
       return {
@@ -34,7 +29,7 @@ export const authReducer = (state = defaultState, action) => {
       console.log("login success");
       return {
         ...state,
-        authError: action.payload
+        user: action.payload
       };
     default:
       return state;
