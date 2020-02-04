@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 import { fetchFirestorePayments } from "../Store/PaymentsListActions";
 import { createPayment } from "../Store/paymentAction";
+import { fetchFirestoreUserProfile } from "../Store/userActions";
 
 class Home extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ class Home extends React.Component {
     this.logout = this.logout.bind(this);
     // this.fetchFirestorePayments = this.fetchFirestorePayments.bind(this);
   }
+  componentDidMount = () => {
+    // call the action
+    this.props.fetchFirestoreUserProfile();
+  };
   // функция чтобы выйти
   logout() {
     firebase.auth().signOut();
@@ -56,6 +61,7 @@ function mapStateToProps(state) {
 
 const matchDispatchToProps = {
   fetchFirestorePayments: fetchFirestorePayments,
+  fetchFirestoreUserProfile: fetchFirestoreUserProfile,
   createPayment: createPayment
 };
 

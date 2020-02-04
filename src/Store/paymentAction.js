@@ -7,6 +7,8 @@ export const createPayment = payment => {
   return dispatch => {
     firebase
       .firestore()
+      .collection("users")
+      .doc("OxHtSkfrF0TISVgaRQb1DL3kH1g1")
       .collection("payments")
       .add({
         ...payment,
